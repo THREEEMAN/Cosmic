@@ -1,0 +1,3 @@
+-keep class com.cosmos.launcher.** { *; }
+-keepclassmembers class com.cosmos.launcher.** { *; }
+-keep interface com.cosmos.launcher.** { *; }
