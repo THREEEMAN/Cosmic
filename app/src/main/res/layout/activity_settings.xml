@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#04060f"
+    android:padding="24dp">
+
+    <TextView android:id="@+id/btnBack" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="← Back" android:textColor="#7b8fff" android:textSize="16sp" android:paddingBottom="24dp"/>
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="COSMOS SETTINGS" android:textColor="#e8eaf6" android:textSize="22sp" android:textStyle="bold" android:paddingBottom="32dp"/>
+
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Gravity Strength" android:textColor="#99b4b8d0" android:textSize="14sp"/>
+    <com.google.android.material.slider.Slider android:id="@+id/sliderGravity" android:layout_width="match_parent" android:layout_height="wrap_content" android:valueFrom="10" android:valueTo="200" android:value="100"/>
+    <TextView android:id="@+id/tvGravityValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="100%" android:textColor="#7b8fff" android:textSize="12sp" android:paddingBottom="24dp"/>
+
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Orbit Speed" android:textColor="#99b4b8d0" android:textSize="14sp"/>
+    <com.google.android.material.slider.Slider android:id="@+id/sliderOrbitSpeed" android:layout_width="match_parent" android:layout_height="wrap_content" android:valueFrom="10" android:valueTo="300" android:value="100"/>
+    <TextView android:id="@+id/tvOrbitValue" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="100%" android:textColor="#7b8fff" android:textSize="12sp" android:paddingBottom="32dp"/>
+
+    <com.google.android.material.button.MaterialButton android:id="@+id/btnReset" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Reset Importance Scores" android:backgroundTint="#1a1c3a"/>
+</LinearLayout>

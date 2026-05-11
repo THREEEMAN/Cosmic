@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <SwitchPreference android:key="gravity_enabled" android:title="Enable Gravity" android:defaultValue="true"/>
+    <SeekBarPreference android:key="orbit_speed" android:title="Orbit Speed" android:max="200" android:defaultValue="100"/>
+</PreferenceScreen>

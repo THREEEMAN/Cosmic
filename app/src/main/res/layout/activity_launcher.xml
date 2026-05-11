@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#04060f">
+
+    <com.cosmos.launcher.CosmosView
+        android:id="@+id/cosmosView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <FrameLayout
+        android:id="@+id/loadingView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#CC04060f"
+        android:gravity="center"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="INITIALIZING COSMOS"
+            android:textColor="#667b8fff"
+            android:textSize="12sp"
+            android:fontFamily="monospace"
+            android:letterSpacing="0.3" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/topBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="48dp"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp"
+        android:paddingBottom="12dp"
+        android:gravity="center_vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tvTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00:00"
+                android:textColor="#e8eaf6"
+                android:textSize="36sp"
+                android:fontFamily="monospace"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/tvDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="MON · 1 JAN 2025"
+                android:textColor="#667b8fff"
+                android:textSize="11sp"
+                android:fontFamily="monospace" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/profileOrb"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:text="E"
+            android:gravity="center"
+            android:textColor="#e8eaf6"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:background="@drawable/profile_orb_bg" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/searchBar"
+        android:layout_width="0dp"
+        android:layout_height="52dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginBottom="12dp"
+        android:background="@drawable/search_bar_bg"
+        app:layout_constraintBottom_toTopOf="@id/dock"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Search apps, contacts, files…"
+            android:textColor="#44b4b8d0"
+            android:textSize="14sp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="⌕"
+            android:textColor="#447b8fff"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/dock"
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/dock_bg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView android:id="@+id/dockPhone"    android:layout_width="0dp" android:layout_height="48dp" android:layout_weight="1" android:gravity="center" android:text="☎" android:textSize="24sp" android:background="@drawable/dock_item_bg" android:contentDescription="Phone" />
+        <TextView android:id="@+id/dockMessages" android:layout_width="0dp" android:layout_height="48dp" android:layout_weight="1" android:gravity="center" android:text="💬" android:textSize="24sp" android:background="@drawable/dock_item_bg" android:contentDescription="Messages" />
+        <TextView android:id="@+id/dockBrowser"  android:layout_width="0dp" android:layout_height="48dp" android:layout_weight="1" android:gravity="center" android:text="🌐" android:textSize="24sp" android:background="@drawable/dock_item_bg" android:contentDescription="Browser" />
+        <TextView android:id="@+id/dockPhotos"   android:layout_width="0dp" android:layout_height="48dp" android:layout_weight="1" android:gravity="center" android:text="📷" android:textSize="24sp" android:background="@drawable/dock_item_bg" android:contentDescription="Photos" />
+        <TextView android:id="@+id/dockSettings" android:layout_width="0dp" android:layout_height="48dp" android:layout_weight="1" android:gravity="center" android:text="⚙" android:textSize="24sp" android:background="@drawable/dock_item_bg" android:contentDescription="Settings" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
