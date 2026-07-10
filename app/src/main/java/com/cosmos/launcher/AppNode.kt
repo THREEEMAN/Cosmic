@@ -39,8 +39,7 @@ data class AppNode(
     var targetOrbitRadius: Float = 100f
     var targetOrbitAngle: Float = 0f
 
-    fun refreshImportance() {
-        val now = System.currentTimeMillis()
+    fun refreshImportance(now: Long = System.currentTimeMillis()) {
         val dayMs = 24 * 60 * 60 * 1000L
         val thirtyDaysMs = 30 * dayMs
 

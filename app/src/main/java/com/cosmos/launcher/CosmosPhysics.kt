@@ -154,7 +154,9 @@ class CosmosPhysics {
         val clusters = nodes.groupBy { it.cluster }
 
         clusters.forEach { (cluster, clusterNodes) ->
-            val baseRadius = 80f + (cluster.hashCode() % 5) * 40f
+            // Int.mod keeps the result in 0..4 even for negative hash codes,
+            // so every cluster lands on a radius between 80 and 240.
+            val baseRadius = 80f + cluster.hashCode().mod(5) * 40f
             clusterNodes.forEachIndexed { index, node ->
                 val angle = (index * 2 * PI.toFloat() / clusterNodes.size)
                 node.targetOrbitRadius = baseRadius
