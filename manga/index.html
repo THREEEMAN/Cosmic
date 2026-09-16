@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>The Beginning of the End — A Threeeman Story</title>
+<meta name="description" content="An interactive manga reader for “The Beginning of the End” — truth, diplomacy and a different tomorrow. Scroll-animated pages in full quality." />
+<meta name="theme-color" content="#07090f" />
+<meta property="og:title" content="The Beginning of the End" />
+<meta property="og:description" content="A story of truth, diplomacy and a different tomorrow." />
+<meta property="og:image" content="assets/thumbs/arc1.webp" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%2307090f'/><path d='M16 6l9 10-9 10-9-10z' fill='none' stroke='%23d8b774' stroke-width='2'/><circle cx='16' cy='16' r='2.6' fill='%23d8b774'/></svg>" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/style.css" />
+<link rel="preload" as="image" href="assets/pages/ep00.webp" />
+</head>
+<body>
+
+<div class="grain" aria-hidden="true"></div>
+<div class="vignette" aria-hidden="true"></div>
+
+<!-- ───────────────────────── top bar ───────────────────────── -->
+<header class="topbar" id="topbar">
+  <a class="brand" href="#top">
+    <span class="brand-mark" aria-hidden="true">
+      <svg viewBox="0 0 32 32"><path d="M16 4l11 12-11 12L5 16z"/><circle cx="16" cy="16" r="3.2"/></svg>
+    </span>
+    <span class="brand-text">
+      <b>The Beginning of the End</b>
+      <i>a threeeman story</i>
+    </span>
+  </a>
+
+  <nav class="dots" id="dots" aria-label="Episodes"></nav>
+
+  <div class="topbar-actions">
+    <span class="chapter-readout" id="chapterReadout">Prologue</span>
+    <button class="ghost-btn" id="btnIndex" aria-expanded="false">Index</button>
+  </div>
+  <div class="scroll-progress"><span id="progressBar"></span></div>
+</header>
+
+<!-- ───────────────────────── hero ───────────────────────── -->
+<section class="hero" id="top">
+  <div class="hero-bg" data-parallax="0.22" aria-hidden="true"></div>
+  <div class="hero-glow" aria-hidden="true"></div>
+
+  <div class="hero-inner">
+    <p class="eyebrow reveal" data-delay="0">Truth · Diplomacy · Impact</p>
+    <h1 class="hero-title">
+      <span class="line reveal" data-delay="60">The Beginning</span>
+      <span class="line reveal" data-delay="140">of the End</span>
+    </h1>
+    <p class="hero-sub reveal" data-delay="220">A story about a world that still can be chosen.<br />Eight pages. Three chapters. One question.</p>
+
+    <div class="hero-cta reveal" data-delay="300">
+      <a class="btn primary" href="#ep00">Start reading</a>
+      <button class="btn" id="btnIndex2">Chapter index</button>
+    </div>
+
+    <div class="hero-meta reveal" data-delay="380">
+      <span><b id="pageCount">8</b> pages</span><span class="sep"></span>
+      <span>Chișinău · Geneva · Istanbul · New York</span><span class="sep"></span>
+      <span>2039 — 2040</span>
+    </div>
+  </div>
+
+  <div class="scroll-hint" aria-hidden="true">
+    <span>scroll</span>
+    <i></i>
+  </div>
+</section>
+
+<!-- ───────────────────────── quote interlude ───────────────────────── -->
+<section class="interlude">
+  <blockquote class="reveal">
+    <p>“Some truths are not meant to be public… but if they stay hidden,<br />the cost is bigger than anyone knows.”</p>
+    <cite>— Emanuel</cite>
+  </blockquote>
+</section>
+
+<!-- ───────────────────────── pages ───────────────────────── -->
+<main id="reader" class="reader"></main>
+
+<!-- ───────────────────────── outro ───────────────────────── -->
+<footer class="outro">
+  <div class="outro-inner">
+    <p class="eyebrow reveal">Arc I — complete</p>
+    <h2 class="reveal">To be continued…</h2>
+    <p class="outro-text reveal">Same sky. Different city. Same fight.</p>
+    <button class="btn primary reveal" id="btnTop">Back to the beginning</button>
+    <p class="credit reveal">“The Beginning of the End” — a threeeman story. Interactive reader built for full-quality viewing.</p>
+  </div>
+</footer>
+
+<!-- ───────────────────────── index drawer ───────────────────────── -->
+<aside class="drawer" id="drawer" aria-hidden="true" aria-label="Chapter index">
+  <div class="drawer-head">
+    <h3>Chapter index</h3>
+    <button class="icon-btn" id="drawerClose" aria-label="Close index">&times;</button>
+  </div>
+  <div class="drawer-grid" id="drawerGrid"></div>
+</aside>
+<div class="scrim" id="scrim" hidden></div>
+
+<!-- ───────────────────────── lightbox reader ───────────────────────── -->
+<div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Full page reader">
+  <div class="lb-bar">
+    <div class="lb-title"><b id="lbTitle"></b><span id="lbSub"></span></div>
+    <div class="lb-tools">
+      <button class="icon-btn" id="lbZoomOut" aria-label="Zoom out">&minus;</button>
+      <span class="lb-zoom" id="lbZoomLevel">100%</span>
+      <button class="icon-btn" id="lbZoomIn" aria-label="Zoom in">+</button>
+      <button class="icon-btn" id="lbFit" aria-label="Fit to screen">Fit</button>
+      <button class="icon-btn" id="lbFull" aria-label="Fullscreen">⤢</button>
+      <button class="icon-btn" id="lbClose" aria-label="Close reader">&times;</button>
+    </div>
+  </div>
+  <button class="lb-nav prev" id="lbPrev" aria-label="Previous page">‹</button>
+  <button class="lb-nav next" id="lbNext" aria-label="Next page">›</button>
+  <div class="lb-stage" id="lbStage">
+    <img id="lbImg" alt="" draggable="false" />
+  </div>
+  <div class="lb-hint">drag to pan · scroll or pinch to zoom · ← → to change page · esc to close</div>
+</div>
+
+<script src="assets/js/pages.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>
